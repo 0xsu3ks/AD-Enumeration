@@ -1,0 +1,82 @@
+# Basic Windows CMD
+// Display local users
+
+net user
+
+// Display domain users
+
+net user /domain
+
+// Enumerate user in domain
+
+net user ["username"] /domain
+
+// Get Local Groups
+net localgroup
+
+// Get Domain User Groups
+net localgroup /domain
+
+// Enum specific group
+net localgroup ["GroupName"] /domain
+
+// Enum Domain Groups
+net group [Works only on a DC]
+
+net group /domain
+
+// Enum specific group
+net group ["GroupName"] /domain
+
+//Enum shares
+net use 
+
+// Show services that are started
+net start
+
+// Enum TCP connections and listening ports
+netstat
+
+// Enum Windows firewall
+netsh firewall show state
+
+// Basic IP Stuff
+ipconfig
+
+// Print routing table
+route print
+
+// Enum running processes
+tasklist /svc
+
+// hostname
+hostname
+
+// env variables
+set
+
+// OS and Version
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+
+// Scheduled Tasks
+Schtasks /query /fo LIST /v
+
+// Enum yourself, privs included
+whoami /all
+
+// Get DC Name
+echo %logonserver%
+
+// Filesearches
+dir /s *password*
+findstr /s /n /i /p [wordhere]*
+findstr /si pass *.txt | *.xml| *.ini
+
+// Add user
+net user [username] /add /domain
+
+// Add user to group
+net group "Enterprise Admins" [username] /add /domain
+
+// Add user to local group
+net localgroup "Remote Desktop Users" [username] /add /domain
