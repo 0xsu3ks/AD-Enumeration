@@ -73,7 +73,7 @@ findstr /s /n /i /p [wordhere]*
 findstr /si pass *.txt | *.xml| *.ini
 
 // Add user
-net user [username] /add /domain
+net user [username] [password] /add /domain
 
 // Add user to group
 net group "Enterprise Admins" [username] /add /domain
