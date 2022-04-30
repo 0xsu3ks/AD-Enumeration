@@ -1,82 +1,30 @@
-# Basic Windows CMD
-// Display local users
-
-net user
-
-// Display domain users
-
-net user /domain
-
-// Enumerate user in domain
-
-net user ["username"] /domain
-
-// Get Local Groups
-net localgroup
-
-// Get Domain User Groups
-net localgroup /domain
-
-// Enum specific group
-net localgroup ["GroupName"] /domain
-
-// Enum Domain Groups
-net group [Works only on a DC]
-
-net group /domain
-
-// Enum specific group
-net group ["GroupName"] /domain
-
-//Enum shares
-net use 
-
-// Show services that are started
-net start
-
-// Enum TCP connections and listening ports
-netstat
-
-// Enum Windows firewall
-netsh firewall show state
-
-// Basic IP Stuff
-ipconfig
-
-// Print routing table
-route print
-
-// Enum running processes
-tasklist /svc
-
-// hostname
-hostname
-
-// env variables
-set
-
-// OS and Version
-systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
-
-// Scheduled Tasks
-Schtasks /query /fo LIST /v
-
-// Enum yourself, privs included
-whoami /all
-
-// Get DC Name
-echo %logonserver%
-
-// Filesearches
-dir /s *password*
-findstr /s /n /i /p [wordhere]*
-findstr /si pass *.txt | *.xml| *.ini
-
-// Add user
-net user [username] [password] /add /domain
-
-// Add user to group
-net group "Enterprise Admins" [username] /add /domain
-
-// Add user to local group
-net localgroup "Remote Desktop Users" [username] /add /domain
+| Command                                              | Action                               |
+|------------------------------------------------------|--------------------------------------|
+| net user                                             | Display local users                  |
+| net user /domain                                     | Display domain users                 |
+| net user ["username"] /domain                        | Enumerate user in domain             |
+| net localgroup                                       | Display local groups                 |
+| net localgroup /domain                               | Display domain user groups           |
+| net localgroup ["groupname"] /domain                 | Enumerate group in domain            |
+| net group                                            | Get domain groups (works only on DC) |
+| net group /domain                                    | Enumerate domain groups              |
+| net group ["groupname"] /domain                      | Enumerate specific group             |
+| net use                                              | Enumerate shares                     |
+| net start                                            | Show services that are started       |
+| netstat                                              | Enumerate TCP connections            |
+| netsh firewall show state                            | Enumerate Windows Firewall           |
+| ipconfig                                             | Get IP info                          |
+| route print                                          | Print routing table                  |
+| tasklist /svc                                        | Enumerate running processes          |
+| hostname                                             | Get hostname                         |
+| set                                                  | Environment variables                |
+| systeminfo | findstr /B /C:"OS Name" /C:"OS Version" | Enumerate OS and Version             |
+| Schtasks /query /fo LIST /v                                   | Enumerate scheduled tasks         |
+| whoami /priv                                                  | Enumerate your privileges         |
+| echo %logonserver%                                            | Get Domain Controller name        |
+| dir /s *password*                                             | Filesearch                        |
+| findstr /s /n /i /p [wordhere]*                               | Filesearch                        |
+| findstr /si pass *.txt | *.xml| *.ini                         | Filesearch                        |
+| net user [username] [password] /add /domain                   | Add user                          |
+| net group "Enterprise Admins" [username] /add /domain         | Add user to Domain Group          |
+| net localgroup "Remote Desktop Users" [username] /add /domain | Add user to local group in Domain |
