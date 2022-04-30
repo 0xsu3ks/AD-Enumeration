@@ -1,3 +1,5 @@
+* This sheet is for basic Windows Command Line access. No Powerview or AD Object commands here
+
 | Command                                              | Action                               |
 |------------------------------------------------------|--------------------------------------|
 | net user                                             | Display local users                  |
